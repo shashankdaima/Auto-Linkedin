@@ -222,14 +222,10 @@ class LinkedIn {
    * @returns {Promise<Array>} Array of profile objects
    */
   async extractLinkedinProfilesFromSearch(page) {
-    console.log("extractLinkedinProfilesFromSearch");
     await page.waitForSelector('.linked-area');
-    console.log("extractLinkedinProfilesFromSearch 2");
 
     return await page.evaluate(() => {
-      console.log("extractLinkedinProfilesFromSearch 3");
       const cards = document.querySelectorAll('.linked-area');
-      console.log(cards);
       let people = []
       for (let c of cards) {
         try {
